@@ -1,6 +1,6 @@
 {
   "name": "mn-reveal-release-test",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": true,
   "description": "WebGL based 3D viewer for CAD and point clouds processed in Cognite CDF.",
   "repository": {
@@ -25,11 +25,12 @@
     "lint": "eslint . --ext .ts,.js --max-warnings 0 && yarn run tsc",
     "lint:fix": "eslint . --ext .ts,.js --max-warnings 0 --fix",
     "tsc": "tsc --noEmit --incremental false --skipLibCheck true",
-    "release": "yarn version --no-git-tag-version && yarn release:commit && yarn release:tag && yarn release:push",
-    "release:commit": "git commit -am \"chore(viewer): bump version ${npm_package_version}\"",
-    "release:tag": "git tag $npm_package_name@$npm_package_version",
-    "release:push": "git push -u origin head && git push --tags",
-    "postrelease": "yarn && yarn build:prod && cd dist && yarn publish --non-interactive"
+    "prebump": "yarn version --no-git-tag-version && yarn",
+    "bump": " yarn bump:commit && yarn bump:tag && yarn bump:push",
+    "bump:commit": "git commit -am \"chore(viewer): bump version ${npm_package_version}\"",
+    "bump:tag": "git tag $npm_package_name@$npm_package_version",
+    "bump:push": "git push -u origin head && git push --tags",
+    "release": "yarn build:prod && cd dist && yarn publish --dry-run --non-interactive"
   },
   "author": "Lars Moastuen <lars.moastuen@cognite.com>",
   "contributors": [

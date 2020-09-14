@@ -1,6 +1,6 @@
 {
   "name": "mn-reveal-release-test",
-  "version": "123.1.2",
+  "version": "1.0.0",
   "private": true,
   "description": "WebGL based 3D viewer for CAD and point clouds processed in Cognite CDF.",
   "repository": {
@@ -27,7 +27,7 @@
     "tsc": "tsc --noEmit --incremental false --skipLibCheck true",
     "prepublishOnly": "yarn build:prod",
     "release": "yarn version --no-git-tag-version && yarn release:commit && yarn release:tag",
-    "release:commit": "git commit -m 'chore(viewer): bump version $npm_package_version'",
+    "release:commit": "git commit -am 'chore(viewer): bump version $npm_package_version'",
     "release:tag": "git tag $npm_package_name@$npm_package_version",
     "postrelease": "git push -u origin head && git push --tags"
   },

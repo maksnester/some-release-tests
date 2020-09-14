@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build & publish
-      - uses: actions/setup-node@v1 # It does setup of .npmrc file to publish to npm
+        uses: actions/setup-node@v1 # It does setup of .npmrc file to publish to npm
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'

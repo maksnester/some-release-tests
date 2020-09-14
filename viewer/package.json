@@ -1,6 +1,6 @@
 {
   "name": "mn-reveal-release-test",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": true,
   "description": "WebGL based 3D viewer for CAD and point clouds processed in Cognite CDF.",
   "repository": {
@@ -25,10 +25,11 @@
     "lint": "eslint . --ext .ts,.js --max-warnings 0 && yarn run tsc",
     "lint:fix": "eslint . --ext .ts,.js --max-warnings 0 --fix",
     "tsc": "tsc --noEmit --incremental false --skipLibCheck true",
-    "release": "yarn version --no-git-tag-version && yarn release:commit && yarn release:tag",
+    "release": "yarn version --no-git-tag-version && yarn release:commit && yarn release:tag && yarn release:push",
     "release:commit": "git commit -am \"chore(viewer): bump version ${npm_package_version}\"",
     "release:tag": "git tag $npm_package_name@$npm_package_version",
-    "postrelease": "git push -u origin head && git push --tags"
+    "release:push": "git push -u origin head && git push --tags",
+    "postrelease": "yarn publish --non-interactive"
   },
   "author": "Lars Moastuen <lars.moastuen@cognite.com>",
   "contributors": [

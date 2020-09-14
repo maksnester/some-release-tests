@@ -1,6 +1,6 @@
 {
   "name": "mn-reveal-release-test",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": true,
   "description": "WebGL based 3D viewer for CAD and point clouds processed in Cognite CDF.",
   "repository": {
